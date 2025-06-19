@@ -12,9 +12,8 @@
         {% for prod in productos %}
         <li>
             <strong>{{ prod.nombre }}</strong> - ${{ prod.precio }} x 
-            <form action="{{ url_for('actualizar_cantidad', id_producto=prod.id_producto) }}" method="post" style="display:inline">
-                <input type="number" name="cantidad" value="{{ prod.cantidad }}" min="1" style="width: 50px;">
-                <button type="submit">Actualizar</button>
+            <form action="{{ url_for('actualizar_cantidad', id_producto=prod.id_producto) }}" method="post" class="form-cantidad" style="display:inline">
+                <input type="number" name="cantidad" value="{{ prod.cantidad }}" min="1" style="width: 50px;" onchange="this.form.submit()">
             </form>
             = ${{ prod.precio * prod.cantidad }}
             <form action="{{ url_for('eliminar_producto', id_producto=prod.id_producto) }}" method="post" style="display:inline">
@@ -38,5 +37,13 @@
     <p>Tu carrito está vacío.</p>
     {% endif %}
     <a href="/">⬅ Volver al inicio</a>
+
+    <script>
+      document.querySelectorAll('.form-cantidad').forEach(form => {
+        form.addEventListener('submit', e => {
+          // Podés agregar lógica extra si querés
+        });
+      });
+    </script>
 </body>
 </html>
