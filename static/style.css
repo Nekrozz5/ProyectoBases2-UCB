@@ -1,10 +1,176 @@
-/*Estilos generales*/
-
-body{
-    font-family: 'Segoe UI', sans-serif;
-    background-color: beige;
-    color: aqua;
+/* General Body and Typography */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 2rem;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
 }
 
+h1, h2, h3 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #2a6496; /* A nice blue for headings */
+}
+
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lists (for categories and product lists) */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Ensures images don't have extra space below them */
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+/* Product Specific Styles (for categoria.html and detalle.html) */
+.product-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product-list li strong {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.product-list li p {
+    margin-bottom: 5px;
+}
+
+.product-list li .price {
+    font-weight: bold;
+    color: #28a745; /* Green for price */
+    font-size: 1.1em;
+}
+
+.product-list li .stock {
+    color: red;
+    font-weight: bold;
+}
+
+/* Forms (for carrito.html and payment forms) */
+form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Buttons */
+button[type="submit"],
+.button { /* Generic class for other buttons if needed */
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover,
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Specific styles for carrito.html */
+.form-cantidad input[type="number"] {
+    width: 60px; /* Adjust width for quantity input */
+    text-align: center;
+    margin-right: 5px;
+}
+
+.carrito-item button {
+    margin-left: 10px;
+    background-color: #dc3545; /* Red for delete button */
+}
+
+.carrito-item button:hover {
+    background-color: #c82333;
+}
+
+/* Messages (for exito.html and fallo.html) */
+.message {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Utility classes */
+.text-center {
+    text-align: center;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
