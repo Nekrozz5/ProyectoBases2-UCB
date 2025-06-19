@@ -1,0 +1,10 @@
+/*Estilos generales*/
+
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background-color: beige;
+    color: aqua;
+    margin: 0;
+    padding: 2rem;
+}
+
