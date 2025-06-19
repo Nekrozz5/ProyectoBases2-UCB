@@ -8,15 +8,21 @@
 <body>
     <h1>{{ categoria | capitalize }}</h1>
     <a href="/">⬅ Volver al inicio</a>
-    <a href="{{ url_for('ver_carrito') }}">🛒 Ver carrito</a>
-
+    <a href="/carrito">🛒 Ver carrito</a>
     <ul>
         {% for producto in productos %}
-        <li>
+        <li style="margin-bottom: 1.5em">
             <img src="{{ producto.foto }}" alt="imagen" width="100"><br>
             <strong>{{ producto.nombre }}</strong><br>
             {{ producto.descripcion }}<br>
             Precio: ${{ producto.precio }}<br>
+            {% if producto.stock > 0 %}
+                <form action="{{ url_for('agregar_carrito', id_producto=producto.id_producto) }}" method="post">
+                    <button type="submit">🛒 Agregar al carrito</button>
+                </form>
+            {% else %}
+                <p style="color:red;">Sin stock</p>
+            {% endif %}
             <a href="{{ url_for('detalle_producto', id_producto=producto.id_producto) }}">Ver más</a>
         </li>
         {% endfor %}

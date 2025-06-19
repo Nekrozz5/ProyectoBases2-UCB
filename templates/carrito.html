@@ -11,7 +11,15 @@
     <ul>
         {% for prod in productos %}
         <li>
-            <strong>{{ prod.nombre }}</strong> - ${{ prod.precio }}
+            <strong>{{ prod.nombre }}</strong> - ${{ prod.precio }} x 
+            <form action="{{ url_for('actualizar_cantidad', id_producto=prod.id_producto) }}" method="post" style="display:inline">
+                <input type="number" name="cantidad" value="{{ prod.cantidad }}" min="1" style="width: 50px;">
+                <button type="submit">Actualizar</button>
+            </form>
+            = ${{ prod.precio * prod.cantidad }}
+            <form action="{{ url_for('eliminar_producto', id_producto=prod.id_producto) }}" method="post" style="display:inline">
+                <button type="submit">🗑 Eliminar</button>
+            </form>
         </li>
         {% endfor %}
     </ul>
