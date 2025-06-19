@@ -1,0 +1,17 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Instrumentos - Inicio</title>
+</head>
+<body>
+    <h1>🎵 Tienda de Instrumentos</h1>
+    <h2>Categorías disponibles</h2>
+    <ul>
+        {% for cat in categorias %}
+            <li><a href="{{ url_for('mostrar_categoria', categoria=cat) }}">{{ cat }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

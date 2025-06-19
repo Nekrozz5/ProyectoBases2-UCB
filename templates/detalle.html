@@ -1,0 +1,30 @@
+<!-- templates/detalle.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ producto.nombre }}</title>
+</head>
+<body>
+    <h1>{{ producto.nombre }}</h1>
+    <img src="{{ producto.foto }}" alt="imagen" width="200"><br>
+    <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+    <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+    <p><strong>Características:</strong></p>
+    <ul>
+        {% for clave, valor in producto.caracteristicas.items() %}
+            <li>{{ clave }}: {{ valor }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Vistas:</strong> {{ producto.vistas or 0 }}</p>
+    <form action="{{ url_for('agregar_carrito', id_producto=producto.id_producto) }}" method="post">
+        <form action="{{ url_for('agregar_carrito', id_producto=producto.id_producto) }}" method="post">
+    <button type="submit">🛒 Agregar al carrito</button>
+</form>
+<a href="{{ url_for('ver_carrito') }}">Ver carrito</a>
+
+    
+    </form>
+    <a href="/">⬅ Volver al inicio</a>
+</body>
+</html>

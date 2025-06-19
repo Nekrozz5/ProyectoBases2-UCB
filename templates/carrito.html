@@ -1,0 +1,34 @@
+<!-- templates/carrito.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <h1>🛒 Carrito de Compras</h1>
+    {% if productos %}
+    <ul>
+        {% for prod in productos %}
+        <li>
+            <strong>{{ prod.nombre }}</strong> - ${{ prod.precio }}
+        </li>
+        {% endfor %}
+    </ul>
+    <p><strong>Total:</strong> ${{ total }}</p>
+    <form action="/pagar" method="post">
+        <label>Nombre:</label><input type="text" name="nombre" required><br>
+        <label>NIT:</label><input type="text" name="nit" required><br>
+        <label>Método de pago:</label>
+        <select name="metodo">
+            <option value="tarjeta">Tarjeta</option>
+            <option value="paypal">PayPal</option>
+        </select><br>
+        <button type="submit">Pagar</button>
+    </form>
+    {% else %}
+    <p>Tu carrito está vacío.</p>
+    {% endif %}
+    <a href="/">⬅ Volver al inicio</a>
+</body>
+</html>

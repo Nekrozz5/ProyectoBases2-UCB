@@ -1,0 +1,15 @@
+<!-- templates/exito.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Compra Exitosa</title>
+</head>
+<body>
+    <h1>✅ ¡Compra Exitosa!</h1>
+    <p>Gracias por tu compra, {{ venta.nombreComprador }}.</p>
+    <p>ID Factura: {{ venta.idFactura }}</p>
+    <p>Total pagado: ${{ venta.costoTotal }}</p>
+    <a href="/">Volver al inicio</a>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!-- templates/categoria.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ categoria | capitalize }}</title>
+</head>
+<body>
+    <h1>{{ categoria | capitalize }}</h1>
+    <a href="/">⬅ Volver al inicio</a>
+    <a href="{{ url_for('ver_carrito') }}">🛒 Ver carrito</a>
+
+    <ul>
+        {% for producto in productos %}
+        <li>
+            <img src="{{ producto.foto }}" alt="imagen" width="100"><br>
+            <strong>{{ producto.nombre }}</strong><br>
+            {{ producto.descripcion }}<br>
+            Precio: ${{ producto.precio }}<br>
+            <a href="{{ url_for('detalle_producto', id_producto=producto.id_producto) }}">Ver más</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
